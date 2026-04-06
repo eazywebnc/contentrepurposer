@@ -172,9 +172,9 @@ export default function DashboardPage() {
             <h1 className="text-2xl font-bold text-white">Dashboard</h1>
             <p className="text-sm text-zinc-500">Your content repurposing hub</p>
           </div>
-          <button className="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white text-sm font-medium flex items-center gap-2 hover:from-pink-600 hover:to-fuchsia-700 transition-all shadow-lg shadow-pink-500/20">
+          <Link href="/dashboard/new" className="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-fuchsia-600 text-white text-sm font-medium flex items-center gap-2 hover:from-pink-600 hover:to-fuchsia-700 transition-all shadow-lg shadow-pink-500/20">
             <Plus className="w-4 h-4" /> New content
-          </button>
+          </Link>
         </div>
 
         {/* Stats */}
@@ -244,6 +244,12 @@ export default function DashboardPage() {
                       <p className="text-[10px] text-zinc-600 shrink-0">
                         {new Date(content.created_at).toLocaleDateString()}
                       </p>
+                      <Link
+                        href={`/dashboard/content/${content.id}`}
+                        className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-zinc-400 hover:text-white hover:border-white/20 transition-all shrink-0"
+                      >
+                        View
+                      </Link>
                     </div>
                   )
                 })}

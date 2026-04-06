@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description:
     "AI-powered content repurposing. Paste a blog post, video transcript, or podcast — get Twitter threads, LinkedIn posts, Instagram captions, TikTok scripts and newsletters in seconds.",
   keywords: ["content repurposing", "AI content", "social media automation", "Twitter threads", "LinkedIn content"],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "ContentRepurposer — AI Content Repurposing for Every Platform",
     description:
@@ -24,6 +28,7 @@ export const metadata: Metadata = {
     url: "https://contentrepurposer.eazyweb.nc",
     siteName: "ContentRepurposer",
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
