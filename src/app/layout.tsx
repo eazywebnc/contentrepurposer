@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description:
     "AI-powered content repurposing. Paste a blog post, video transcript, or podcast — get Twitter threads, LinkedIn posts, Instagram captions, TikTok scripts and newsletters in seconds.",
   keywords: ["content repurposing", "AI content", "social media automation", "Twitter threads", "LinkedIn content"],
+  metadataBase: new URL("https://contentrepurposer.eazyweb.nc"),
+  alternates: {
+    canonical: "https://contentrepurposer.eazyweb.nc",
+  },
   robots: {
     index: true,
     follow: true,
@@ -37,6 +41,23 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ContentRepurposer",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://contentrepurposer.eazyweb.nc",
+  description:
+    "AI-powered content repurposing. Turn one post into content for every platform in seconds.",
+  offers: [
+    { "@type": "Offer", name: "Starter", price: "19", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Creator", price: "49", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Agency", price: "99", priceCurrency: "USD" },
+  ],
+  creator: { "@type": "Organization", name: "EazyWebNC", url: "https://eazyweb.nc" },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,6 +68,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#080305] text-white">
         {children}
       </body>
